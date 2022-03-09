@@ -19,6 +19,16 @@ const PredictionSchema = new Schema({
     default: Date.now,
     get: (timestamp) => dateFormat(timestamp),
   },
+  predictionDate: {
+    type: Date,
+    default: Date.now,
+    get: (timestamp) => dateFormat(timestamp),
+  },
+  tags: {
+    type: String,
+    required: true,
+    trim: true,
+  },
   comments: [
     {
       commentText: {
