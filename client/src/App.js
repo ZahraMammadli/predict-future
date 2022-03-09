@@ -1,11 +1,13 @@
 import "./App.css";
-import CenterTitle from "./components/welcome";
-import Backgrdound from "./components/background";
+import HomePage from "./pages/HomePage";
+import LandingPage from "./pages/LandingPage";
+
 function App() {
   return (
     <div>
-      <Backgrdound />
-      <CenterTitle />
+      {/* <LandingPage /> */}
+
+      <HomePage />
     </div>
   );
 }
