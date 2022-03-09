@@ -1,9 +1,9 @@
 export default function () {
   return (
-    <div>
-      <div>Left Menu</div>
-      <div>Center column </div>
-      <div>Right tab</div>
+    <div className="d-flex">
+      <div className="left-menu">Left Menu</div>
+      <div className="center-col">Center column </div>
+      <div className="right-tab">Right tab</div>
     </div>
   );
 }
