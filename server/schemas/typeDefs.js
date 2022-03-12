@@ -6,6 +6,7 @@ const typeDefs = gql`
     msg: String
     users: [User]
     user(username: String!): User
+    predictions: [Prediction]
   }
 
   type User {

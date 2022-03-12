@@ -13,6 +13,9 @@ const resolvers = {
     user: async (parent, args) => {
       return User.find(args.username);
     },
+    predictions: async () => {
+      return Prediction.find().sort({ createdAt: -1 });
+    },
   },
   Mutation: {
     addUser: async (parent, { username, email, password }) => {
