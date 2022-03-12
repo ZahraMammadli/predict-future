@@ -8,7 +8,8 @@ import {
   useLoader,
   useThree,
 } from "react-three-fiber";
-// import circleImg from "../assets/";
+import circleImg from "../../assets/circle.png";
+
 import { Suspense, useCallback, useMemo, useRef } from "react";
 extend({ OrbitControls });
 
@@ -32,7 +33,7 @@ function CameraControls() {
 }
 
 function Points() {
-  const imgTex = useLoader(THREE.TextureLoader /*circleImg*/);
+  const imgTex = useLoader(THREE.TextureLoader, circleImg);
   const bufferRef = useRef();
 
   let t = 0;

@@ -1,5 +1,5 @@
-import CenterTitle from "../components/welcome";
-import Backgrdound from "../components/background";
+import CenterTitle from "../components/Background/Welcome";
+import Backgrdound from "../components/Background/Background";
 
 export default function () {
   return (
