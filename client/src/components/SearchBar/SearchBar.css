@@ -1,25 +1,30 @@
+.root {
+  --twitter-background: red;
+}
+
 .search-bar {
-    flex: 0.3;
-    overflow-y: scroll;
-  }
-  .widgets::-webkit-scrollbar {
-    display: none;
-  }
-  .search-bar__input {
-    display: flex;
-    align-items: center;
-    background-color: var(--twitter-background);
-    padding: 10px;
-    border-radius: 20px;
-    margin-top: 10px;
-    margin-left: 20px;
-  }
-  .search-bar__input > input {
-    border: none;
-    background-color: var(--twitter-background);
-  }
-  .search-bar__input > input:focus {
-    outline: none;
-  }
-  .search-bar__searchIcon {
-    color: gray;
+  flex: 0.3;
+}
+.widgets::-webkit-scrollbar {
+  display: none;
+}
+.search-bar__input {
+  display: flex;
+  align-items: center;
+  background-color: var(--twitter-background);
+  padding: 10px;
+  border: 1px solid gray;
+  border-radius: 20px;
+  margin-top: 10px;
+  margin-left: 20px;
+}
+.search-bar__input > input {
+  border: none;
+  background-color: var(--twitter-background);
+}
+.search-bar__input > input:focus {
+  outline: none;
+}
+.search-bar__searchIcon {
+  color: gray;
+}

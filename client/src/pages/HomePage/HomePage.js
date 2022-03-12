@@ -1,4 +1,5 @@
 import LeftMenu from "../../components/LeftMenu/LeftMenu";
+import SearchBar from "../../components/SearchBar/SearchBar";
 import "./HomePage.css";
 
 export default function () {
@@ -10,6 +11,7 @@ export default function () {
         </div>
         <div className="center-col">Center column </div>
         <div className="right-tab">Right tab</div>
+        <SearchBar />
       </div>
     </div>
   );
