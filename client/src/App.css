@@ -30,11 +30,3 @@ body {
   position: absolute;
   color: white;
 }
-
-.center-col {
-  flex: 0.4 1;
-}
-
-.right-tab {
-  flex: 0.3 1;
-}
