@@ -1,4 +1,5 @@
-import LeftMenu from "../components/LeftMenu";
+import LeftMenu from "../../components/LeftMenu/LeftMenu";
+import "./HomePage.css";
 
 export default function () {
   return (

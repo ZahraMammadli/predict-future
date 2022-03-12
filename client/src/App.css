@@ -4,6 +4,10 @@ body {
   /* overflow-x: hidden; */
 }
 
+.app {
+  width: 70%;
+  margin: auto;
+}
 .anim {
   width: 100vw;
   height: 100vh;
@@ -26,16 +30,6 @@ body {
   transform: translate(-50%, -50%);
   position: absolute;
   color: white;
-}
-
-.d-flex {
-  display: flex;
-  margin: auto;
-  text-align: center;
-}
-
-.left-menu {
-  flex: 0.25;
 }
 
 .center-col {

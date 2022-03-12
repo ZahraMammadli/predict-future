@@ -1,6 +1,7 @@
-import MenuItem from "./MenuItem";
+import MenuItem from "../MenuItem";
 import HomeIcon from "@material-ui/icons/Home";
 import MailOutlineIcon from "@material-ui/icons/MailOutline";
+import "./LeftMenu.css";
 
 const menuData = [
   {
