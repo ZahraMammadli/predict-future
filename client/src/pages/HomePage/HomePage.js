@@ -5,7 +5,7 @@ import "./HomePage.css";
 
 export default function () {
   return (
-    <div className="w-70">
+    <div className="w-80">
       <div className="d-flex">
         <div className="left-menu">
           <LeftMenu />

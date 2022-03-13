@@ -2,11 +2,11 @@
   display: flex;
   text-align: center;
 }
-.w-70 {
-  width: 70%;
+.w-80 {
+  width: 80%;
   margin: auto;
 }
 
 .center-col {
-  flex: 0.4 1;
+  flex: 0.6 1;
 }
