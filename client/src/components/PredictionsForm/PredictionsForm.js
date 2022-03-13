@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Button from "@mui/material/Button";
 
 const TEXT_SIZE = 250;
 
@@ -8,6 +9,10 @@ export default function PredictionsForm() {
   const handleInput = (e) => {
     const input = e.target.value;
     setInputText(input);
+  };
+
+  const handlePredict = () => {
+    console.log("Predict: ", inputText);
   };
 
   return (
@@ -20,8 +25,10 @@ export default function PredictionsForm() {
           value={inputText}
         />
 
-        <input type="button" value="Shoot" />
         <h4>Remaining chars: {TEXT_SIZE - inputText.length}</h4>
+        <Button variant="contained" onClick={handlePredict}>
+          Predict
+        </Button>
       </form>
     </div>
   );
