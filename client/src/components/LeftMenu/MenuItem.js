@@ -5,7 +5,8 @@ export default function MenuItem({ name, Icon }) {
     <div>
       <Link to="/landing">
         <h3>
-          {Icon ? <Icon /> : ""} {name}
+          <span className="mi-icon">{Icon ? <Icon /> : ""}</span>{" "}
+          <span className="mi-name"> {name}</span>
         </h3>
       </Link>
     </div>

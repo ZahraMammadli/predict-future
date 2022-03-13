@@ -1,4 +1,4 @@
-import MenuItem from "../MenuItem";
+import MenuItem from "./MenuItem";
 import HomeIcon from "@material-ui/icons/Home";
 import MailOutlineIcon from "@material-ui/icons/MailOutline";
 import SearchIcon from "@material-ui/icons/Search";
@@ -33,14 +33,8 @@ console.log(window.innerWidth);
 export default function LeftMenu() {
   return (
     <div>
-      {window.innerWidth < 1000 ? (
-        <div>
-          {menuData.map((menuItem) => (
-            <MenuItem key={menuItem.id} Icon={menuItem.icon} />
-          ))}
-        </div>
-      ) : (
-        <div>
+      {
+        <div className="mi">
           {menuData.map((menuItem) => (
             <MenuItem
               key={menuItem.id}
@@ -49,7 +43,7 @@ export default function LeftMenu() {
             />
           ))}
         </div>
-      )}
+      }
     </div>
   );
 }
