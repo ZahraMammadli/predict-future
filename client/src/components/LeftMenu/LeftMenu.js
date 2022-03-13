@@ -7,18 +7,22 @@ import "./LeftMenu.css";
 
 const menuData = [
   {
+    id: 1,
     name: "Home",
     icon: HomeIcon,
   },
   {
+    id: 2,
     name: "Landing",
     icon: MailOutlineIcon,
   },
   {
+    id: 3,
     name: "Explore #",
     icon: SearchIcon,
   },
   {
+    id: 4,
     name: "Profile",
     icon: PermIdentityIcon,
   },
@@ -32,13 +36,17 @@ export default function LeftMenu() {
       {window.innerWidth < 1000 ? (
         <div>
           {menuData.map((menuItem) => (
-            <MenuItem Icon={menuItem.icon} />
+            <MenuItem key={menuItem.id} Icon={menuItem.icon} />
           ))}
         </div>
       ) : (
         <div>
           {menuData.map((menuItem) => (
-            <MenuItem name={menuItem.name} Icon={menuItem.icon} />
+            <MenuItem
+              key={menuItem.id}
+              name={menuItem.name}
+              Icon={menuItem.icon}
+            />
           ))}
         </div>
       )}

@@ -3,10 +3,10 @@ import "./RightTab.css";
 import Trend from "./Trend";
 
 const trends = [
-  { name: "#Trend1" },
-  { name: "#Trend2" },
-  { name: "#Trend3" },
-  { name: "#Trend4" },
+  { id: 1, name: "#Trend1" },
+  { id: 2, name: "#Trend2" },
+  { id: 3, name: "#Trend3" },
+  { id: 4, name: "#Trend4" },
 ];
 
 export default function RightTab() {
@@ -15,7 +15,7 @@ export default function RightTab() {
       <SearchBar />
       <div className="">
         {trends.map((t) => (
-          <Trend trend={t.name} />
+          <Trend key={t.id} trend={t.name} />
         ))}
       </div>
     </div>
