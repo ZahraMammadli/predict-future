@@ -12,8 +12,12 @@ export default function () {
           <LeftMenu />
         </div>
         <div className="center-col">
-          <PredictionsForm />
-          <Feed />
+          <div className="center-col">
+            <PredictionsForm />
+          </div>
+          <div className="center-col">
+            <Feed />
+          </div>
         </div>
         <RightTab />
       </div>

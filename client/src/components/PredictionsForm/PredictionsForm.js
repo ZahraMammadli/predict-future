@@ -2,6 +2,9 @@ import { useState } from "react";
 import Button from "@mui/material/Button";
 import "./PredictionsForm.css";
 import TextField from "@mui/material/TextField";
+import { useMutation } from "@apollo/client";
+import { ADD_PREDICTION } from "../../utils/mutations";
+import { QUERY_PREDICTIONS } from "../../utils/queries";
 
 const TEXT_SIZE = 250;
 
@@ -13,8 +16,37 @@ export default function PredictionsForm() {
     setInputText(input);
   };
 
-  const handlePredict = () => {
-    console.log("Predict: ", inputText);
+  const [addPrediction, { error }] = useMutation(ADD_PREDICTION, {
+    update(cache, { data: { addPrediction } }) {
+      try {
+        const { predictions } = cache.readQuery({ query: QUERY_PREDICTIONS });
+
+        cache.writeQuery({
+          query: QUERY_PREDICTIONS,
+          data: { predictions: [addPrediction, ...predictions] },
+        });
+      } catch (e) {
+        console.error(e);
+      }
+    },
+  });
+
+  const handlePredict = async (event) => {
+    event.preventDefault();
+
+    try {
+      const { data } = await addPrediction({
+        variables: {
+          predictionText: inputText,
+          predictionAuthor: "test", //: Auth.getProfile().data.username,
+          tags: "#tag",
+        },
+      });
+
+      setInputText("");
+    } catch (err) {
+      console.error(err);
+    }
   };
 
   return (
