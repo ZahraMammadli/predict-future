@@ -19,6 +19,7 @@
     "react-flip-move": "^3.0.4",
     "react-router-dom": "^6.2.2",
     "react-scripts": "4.0.3",
+    "react-scroll-motion": "^0.2.6",
     "react-three-fiber": "^5.3.22",
     "react-tsparticles": "^1.41.5",
     "three": "^0.126.1",
