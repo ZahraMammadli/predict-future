@@ -1,5 +1,6 @@
 import LeftMenu from "../../components/LeftMenu/LeftMenu";
 import PredictionsForm from "../../components/PredictionsForm/PredictionsForm";
+import Feed from "../../components/PredictionStream/feed";
 import RightTab from "../../components/RightTab/RightTab";
 import "./HomePage.css";
 
@@ -12,6 +13,7 @@ export default function () {
         </div>
         <div className="center-col">
           <PredictionsForm />
+          <Feed />
         </div>
         <RightTab />
       </div>
