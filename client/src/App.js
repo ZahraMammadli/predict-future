@@ -1,7 +1,11 @@
 import "./App.css";
-import CenterTitle from "./components/welcome";
-import Backgrdound from "./components/background";
+// import CenterTitle from "./components/welcome";
+// import Backgrdound from "./components/background";
 import Predictions from "./components/PredictionStream/predictions";
+import { Routes, Route, BrowserRouter } from "react-router-dom";
+import HomePage from "./pages/HomePage/HomePage";
+import LandingPage from "./pages/LandingPage";
+
 import {
   ApolloClient,
   InMemoryCache,
@@ -9,7 +13,6 @@ import {
   createHttpLink,
 } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
-import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import Feed from "./components/PredictionStream/feed";
 
@@ -40,10 +43,16 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-      <div>
+      <div className="app">
+        <BrowserRouter>
+          <Routes>
+            <Route path="/landing" element={<LandingPage />} />
+            <Route path="*" element={<HomePage />} />
+          </Routes>
+        </BrowserRouter>
         {/* <Backgrdound />
         <CenterTitle /> */}
-        <Feed />
+        {/* <Feed /> */}
       </div>
     </ApolloProvider>
   );

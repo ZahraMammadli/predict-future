@@ -1,0 +1,12 @@
+.d-flex {
+  display: flex;
+  text-align: center;
+}
+.w-80 {
+  width: 80%;
+  margin: auto;
+}
+
+.center-col {
+  flex: 0.6 1;
+}
