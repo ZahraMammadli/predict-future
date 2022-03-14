@@ -1,0 +1,23 @@
+.pf-body {
+  width: 86%;
+  padding: 2vh 2vw;
+  margin-left: 1vw;
+  margin-right: 1vw;
+  border: 1px solid lightgray;
+  border-radius: 5%;
+}
+
+.pf-input {
+  width: 95%;
+}
+
+.pf-footer {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: row;
+}
+
+.pf-predict-btn {
+  justify-self: end;
+}
