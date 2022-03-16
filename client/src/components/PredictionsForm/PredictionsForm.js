@@ -5,6 +5,7 @@ import TextField from "@mui/material/TextField";
 import { useMutation } from "@apollo/client";
 import { ADD_PREDICTION } from "../../utils/mutations";
 import { QUERY_PREDICTIONS } from "../../utils/queries";
+import Auth from "../../utils/auth";
 
 const TEXT_SIZE = 250;
 
@@ -38,7 +39,7 @@ export default function PredictionsForm() {
       const { data } = await addPrediction({
         variables: {
           predictionText: inputText,
-          predictionAuthor: "test", //: Auth.getProfile().data.username,
+          predictionAuthor: Auth.getProfile().data.username,
           tags: "#tag",
         },
       });
