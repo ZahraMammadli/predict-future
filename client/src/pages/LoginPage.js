@@ -111,7 +111,7 @@ const Login = (props) => {
         )}
         <Typography>
           {" "}
-          Do you have an account ?<Link href="#">Sign Up</Link>
+          Do you have an account ?<Link href="/signup">Sign Up</Link>
         </Typography>
         {error && (
           <div className="my-3 p-3 bg-danger text-white">{error.message}</div>

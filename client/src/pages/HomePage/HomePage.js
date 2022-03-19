@@ -3,6 +3,7 @@ import PredictionsForm from "../../components/PredictionsForm/PredictionsForm";
 import Feed from "../../components/PredictionStream/feed";
 import RightTab from "../../components/RightTab/RightTab";
 import "./HomePage.css";
+import WordCloud from "../../components/WordCloud/WordCloud";
 
 export default function () {
   return (
@@ -13,6 +14,7 @@ export default function () {
         </div>
         <div className="center-col">
           <div className="center-col">
+            <WordCloud />
             <PredictionsForm />
           </div>
           <div className="center-col">

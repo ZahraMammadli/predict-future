@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 
 export default function MenuItem({ id, name, Icon }) {
-  console.log(id);
   return (
     <div>
       <Link to={"/post/" + id}>

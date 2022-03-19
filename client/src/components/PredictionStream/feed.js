@@ -6,7 +6,6 @@ import { useQuery } from "@apollo/client";
 const Feed = () => {
   const { loading, data } = useQuery(QUERY_PREDICTIONS);
   const predictions = data?.predictions || [];
-  console.log(predictions);
 
   return (
     <main>
@@ -27,6 +26,3 @@ const Feed = () => {
 };
 
 export default Feed;
-
-// className="flex-row justify-center"
-//  className="col-12 col-md-8 mb-3"

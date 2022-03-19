@@ -1,5 +1,6 @@
 import "./App.css";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
+import { render } from "react-dom";
 import HomePage from "./pages/HomePage/HomePage";
 import LandingPage from "./pages/LandingPage";
 import LoginPage from "./pages/LoginPage";
@@ -43,18 +44,13 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <div className="app">
-        {/* <BrowserRouter>
+        <BrowserRouter>
           <Routes>
-            <Route path="/post/:id" element={<LoginPage />} />
-            <Route path="/landing" element={<LandingPage />} />
-            <Route path="*" element={<HomePage />} /> */}
-        {/* <Route path="/profile" element={<LoginPage />} /> */}
-        {/* </Routes>
-        </BrowserRouter> */}
-        {/* <Backgrdound />
-        <CenterTitle /> */}
-        {/* <Feed /> */}
-        <Signup />
+            <Route path="/post/4" element={<LoginPage />} />
+            <Route path="/post/1" element={<LandingPage />} />
+            <Route path="*" element={<HomePage />} />
+          </Routes>
+        </BrowserRouter>
       </div>
     </ApolloProvider>
   );
