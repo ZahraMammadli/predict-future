@@ -55,7 +55,7 @@ const resolvers = {
 
       await User.findOneAndUpdate(
         { username: predictionAuthor },
-        { $addToSet: { prediction: prediction._id } }
+        { $addToSet: { predictions: prediction._id } }
       );
 
       return prediction;

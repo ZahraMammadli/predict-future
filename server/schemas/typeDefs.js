@@ -31,7 +31,6 @@ const typeDefs = gql`
     tags: String
     comments: [Comment]
   }
-
   type Comment {
     _id: ID
     commentText: String
