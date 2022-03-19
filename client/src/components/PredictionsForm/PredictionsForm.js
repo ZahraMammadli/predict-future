@@ -6,6 +6,7 @@ import { useMutation } from "@apollo/client";
 import { ADD_PREDICTION } from "../../utils/mutations";
 import { QUERY_PREDICTIONS } from "../../utils/queries";
 import Auth from "../../utils/auth";
+import GiphyBox from "../GiphyBox/GiphyBox";
 
 const TEXT_SIZE = 250;
 
@@ -64,6 +65,8 @@ export default function PredictionsForm() {
         />
 
         <h4>Remaining chars: {TEXT_SIZE - inputText.length}</h4>
+
+        <GiphyBox predictionsString={inputText} />
 
         <div className="pf-footer">
           <div className="pf-predict-btn">

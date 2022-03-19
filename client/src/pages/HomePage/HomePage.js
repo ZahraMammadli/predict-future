@@ -14,7 +14,7 @@ export default function () {
         </div>
         <div className="center-col">
           <div className="center-col">
-            <WordCloud />
+            {/* <WordCloud /> */}
             <PredictionsForm />
           </div>
           <div className="center-col">
