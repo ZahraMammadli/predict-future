@@ -13,7 +13,8 @@ const resolvers = {
     user: async (parent, args) => {
       return User.find(args.username);
     },
-    predictions: async () => {
+    predictions: async (parent, { username }) => {
+      const params = username ? { username } : {};
       return Prediction.find().sort({ createdAt: -1 });
     },
   },
