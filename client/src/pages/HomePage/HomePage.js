@@ -33,13 +33,9 @@ export default function () {
             <LeftMenu />
           </div>
           <div className="center-col">
-            <div className="center-col">
-              {/* <WordCloud />  Get this out of here into explore page */}
-              <PredictionsForm />
-            </div>
-            <div className="center-col">
-              <Feed />
-            </div>
+            {/* <WordCloud /> */}
+            <PredictionsForm />
+            <Feed />
           </div>
         </div>
       </div>

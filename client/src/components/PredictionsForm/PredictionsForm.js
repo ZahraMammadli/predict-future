@@ -67,7 +67,13 @@ export default function PredictionsForm() {
 
         <div className="pf-footer">
           <div className="pf-predict-btn">
-            <Button variant="contained" onClick={handlePredict}>
+            <Button
+              variant="contained"
+              onClick={handlePredict}
+              style={{
+                backgroundColor: "grey",
+              }}
+            >
               Predict
             </Button>
           </div>

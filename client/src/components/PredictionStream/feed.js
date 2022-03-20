@@ -14,10 +14,7 @@ const Feed = () => {
           {loading ? (
             <div>Loading...</div>
           ) : (
-            <Predictions
-              predictions={predictions}
-              title="Some Feed for Thought(s)..."
-            />
+            <Predictions predictions={predictions} />
           )}
         </div>
       </div>
