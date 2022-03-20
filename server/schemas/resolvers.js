@@ -46,12 +46,13 @@ const resolvers = {
     //  Todo: replace prediction Author by user. Update both prediction and User
     addPrediction: async (
       parent,
-      { predictionText, predictionAuthor, tags }
+      { predictionText, predictionAuthor, tags, predictionDate }
     ) => {
       const prediction = Prediction.create({
         predictionText,
         predictionAuthor,
         tags,
+        predictionDate,
       });
 
       await User.findOneAndUpdate(

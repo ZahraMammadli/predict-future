@@ -44,6 +44,7 @@ const typeDefs = gql`
     addPrediction(
       predictionText: String!
       predictionAuthor: String!
+      predictionDate: String
       tags: String
     ): Prediction
     removePrediction(predictionId: String!): Prediction

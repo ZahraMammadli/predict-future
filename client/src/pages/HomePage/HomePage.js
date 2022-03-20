@@ -1,7 +1,6 @@
 import LeftMenu from "../../components/LeftMenu/LeftMenu";
 import PredictionsForm from "../../components/PredictionsForm/PredictionsForm";
 import Feed from "../../components/PredictionStream/feed";
-import RightTab from "../../components/RightTab/RightTab";
 import "./HomePage.css";
 import WordCloud from "../../components/WordCloud/WordCloud";
 import Nebula from "../../assets/videos/Nebula.mp4";
