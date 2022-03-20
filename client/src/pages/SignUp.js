@@ -5,7 +5,6 @@ import {
   Avatar,
   TextField,
   Button,
-  Typography,
   Link,
 } from "@material-ui/core";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";

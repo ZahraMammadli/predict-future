@@ -6,6 +6,7 @@ import ChatBubbleOutlineIcon from "@material-ui/icons/ChatBubbleOutline";
 import RepeatIcon from "@material-ui/icons/Repeat";
 import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 import Grid from "@material-ui/core/Grid";
+import "./feed";
 
 export default function Predictions({ predictions, title }) {
   return (
