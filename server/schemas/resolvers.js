@@ -17,6 +17,7 @@ const resolvers = {
       const params = username ? { username } : {};
       return Prediction.find().sort({ createdAt: -1 });
     },
+    //wordCloud: return wordCloud;
   },
   Mutation: {
     addUser: async (parent, { username, email, password }) => {
