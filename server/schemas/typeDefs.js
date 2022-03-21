@@ -29,6 +29,7 @@ const typeDefs = gql`
     createdAt: String
     predictionDate: String
     tags: String
+    url: String
     comments: [Comment]
   }
   type Comment {
@@ -46,6 +47,7 @@ const typeDefs = gql`
       predictionAuthor: String!
       predictionDate: String
       tags: String
+      url: String
     ): Prediction
     removePrediction(predictionId: String!): Prediction
   }

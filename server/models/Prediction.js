@@ -29,6 +29,11 @@ const PredictionSchema = new Schema({
     required: true,
     trim: true,
   },
+  url: {
+    type: String,
+    required: false,
+    trim: true,
+  },
   comments: [
     {
       commentText: {
