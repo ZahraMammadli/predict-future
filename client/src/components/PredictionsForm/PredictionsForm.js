@@ -7,6 +7,7 @@ import { useMutation } from "@apollo/client";
 import { ADD_PREDICTION } from "../../utils/mutations";
 import { QUERY_PREDICTIONS } from "../../utils/queries";
 import Auth from "../../utils/auth";
+import GiphyBox from "../GiphyBox/GiphyBox";
 // import MaterialUIPickers from "./datePicker";
 import Stack from "@mui/material/Stack";
 import Box from "@mui/material/Box";
@@ -73,12 +74,24 @@ export default function PredictionsForm() {
           id="outlined-basic"
           label="Enter the text here"
           className="pf-input"
-          placeholder="Enter the text here"
+          placeholder="Enter the prediction here"
           onChange={handleInput}
           value={inputText}
           variant="outlined"
         />
         <h4>Remaining chars: {TEXT_SIZE - inputText.length}</h4>
+
+        <TextField
+          id="outlined-basic"
+          label="Enter #tags here"
+          className="pf-input"
+          placeholder="Enter the text here"
+          onChange={handleInput}
+          value={inputText}
+          variant="outlined"
+        />
+
+        <GiphyBox predictionsString={inputText} />
 
         <LocalizationProvider dateAdapter={AdapterDateFns}>
           <Stack spacing={3}>
