@@ -46,8 +46,9 @@ function App() {
       <div className="app">
         <BrowserRouter>
           <Routes>
-            <Route path="/post/4" element={<LoginPage />} />
             <Route path="/post/1" element={<LandingPage />} />
+            <Route path="/post/4" element={<LoginPage />} />
+            <Route path="/signup" element={<Signup />} />
             <Route path="*" element={<HomePage />} />
           </Routes>
         </BrowserRouter>
