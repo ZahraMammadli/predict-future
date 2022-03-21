@@ -32,7 +32,7 @@ export default function () {
             <LeftMenu />
           </div>
           <div className="center-col">
-            {/* <WordCloud /> */}
+            <WordCloud />
             <PredictionsForm />
             <Feed />
           </div>

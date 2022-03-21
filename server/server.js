@@ -1,7 +1,7 @@
 const express = require("express");
 const { ApolloServer } = require("apollo-server-express");
 const path = require("path");
-const { generateWordCloud, wordCloud } = require("./utils/wordCloud");
+const { generateWordCloud, getWordCloud } = require("./utils/wordCloud");
 
 const { typeDefs, resolvers } = require("./schemas");
 const db = require("./config/connection");
@@ -21,7 +21,7 @@ app.use(express.json());
 
 // GET request for ALL reviews
 app.get("/api/wordCloud", (req, res) => {
-  return wordCloud;
+  res.json(getWordCloud());
 });
 
 if (process.env.NODE_ENV === "production") {
@@ -39,7 +39,7 @@ db.once("open", () => {
   });
 
   // Populate the wordcloud if it doesnot exist;
-  if (wordCloud.length === 0) {
+  if (getWordCloud().length === 0) {
     generateWordCloud();
   }
 });
