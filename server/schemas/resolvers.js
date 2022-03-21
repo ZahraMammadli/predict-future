@@ -17,6 +17,7 @@ const resolvers = {
       const params = username ? { username } : {};
       return Prediction.find().sort({ createdAt: -1 });
     },
+    //wordCloud: return wordCloud;
   },
   Mutation: {
     addUser: async (parent, { username, email, password }) => {
@@ -45,12 +46,13 @@ const resolvers = {
     //  Todo: replace prediction Author by user. Update both prediction and User
     addPrediction: async (
       parent,
-      { predictionText, predictionAuthor, tags }
+      { predictionText, predictionAuthor, tags, predictionDate }
     ) => {
       const prediction = Prediction.create({
         predictionText,
         predictionAuthor,
         tags,
+        predictionDate,
       });
 
       await User.findOneAndUpdate(
