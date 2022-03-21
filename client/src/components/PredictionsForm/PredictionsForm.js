@@ -58,13 +58,23 @@ export default function PredictionsForm() {
           id="outlined-basic"
           label="Enter the text here"
           className="pf-input"
-          placeholder="Enter the text here"
+          placeholder="Enter the prediction here"
           onChange={handleInput}
           value={inputText}
           variant="outlined"
         />
 
         <h4>Remaining chars: {TEXT_SIZE - inputText.length}</h4>
+
+        <TextField
+          id="outlined-basic"
+          label="Enter #tags here"
+          className="pf-input"
+          placeholder="Enter the text here"
+          onChange={handleInput}
+          value={inputText}
+          variant="outlined"
+        />
 
         <GiphyBox predictionsString={inputText} />
 

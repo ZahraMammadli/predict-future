@@ -14,6 +14,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@mui/lab": "^5.0.0-alpha.74",
     "if-env": "^1.0.4",
     "react-giphy-searchbox": "^1.5.4"
   },

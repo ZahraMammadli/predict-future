@@ -6,7 +6,7 @@ import ReactGiphySearchbox from "react-giphy-searchbox";
 
 const GiphyBox = (props) => {
   console.log(props.predictionsString);
-  // TODO: get user from context, get prediction text from props, giph link from the "onSelect" prop inside the ReactGiphySearchbox component (store it in state maybe?)
+  // TODO: get user from context, get prediction text from props, giphy link from the "onSelect" prop inside the ReactGiphySearchbox component (store it in state maybe?)
   // TODO: exectue mutation with required data and store it in the database
 
   return (

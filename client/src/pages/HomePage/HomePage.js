@@ -21,7 +21,6 @@ export default function () {
             <Feed />
           </div>
         </div>
-        <RightTab />
       </div>
     </div>
   );
