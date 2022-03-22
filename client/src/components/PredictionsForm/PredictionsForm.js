@@ -22,6 +22,8 @@ export default function PredictionsForm() {
     new Date("2022-03-20T00:00:00.000Z")
   );
 
+  const [giphyUrl, setGiphyUrl] = useState();
+
   const handleChange = (newValue) => {
     setValue(newValue);
   };
@@ -50,6 +52,7 @@ export default function PredictionsForm() {
 
   const handlePredict = async (event) => {
     event.preventDefault();
+    console.log(giphyUrl);
 
     try {
       const { data } = await addPrediction({
@@ -58,6 +61,7 @@ export default function PredictionsForm() {
           predictionAuthor: Auth.getProfile().data.username,
           tags: "#tag",
           predictionDate: predictionDate,
+          url: giphyUrl,
         },
       });
 
@@ -79,19 +83,6 @@ export default function PredictionsForm() {
           value={inputText}
           variant="outlined"
         />
-        <h4>Remaining chars: {TEXT_SIZE - inputText.length}</h4>
-
-        <TextField
-          id="outlined-basic"
-          label="Enter #tags here"
-          className="pf-input"
-          placeholder="Enter the text here"
-          onChange={handleInput}
-          value={inputText}
-          variant="outlined"
-        />
-
-        <GiphyBox predictionsString={inputText} />
 
         <LocalizationProvider dateAdapter={AdapterDateFns}>
           <Stack spacing={3}>
@@ -115,6 +106,11 @@ export default function PredictionsForm() {
             />
           </Stack>
         </LocalizationProvider>
+
+        <h4>Remaining chars: {TEXT_SIZE - inputText.length}</h4>
+
+        <GiphyBox setGiphyUrl={setGiphyUrl} />
+
         <div className="pf-footer">
           <div className="pf-predict-btn">
             <Button

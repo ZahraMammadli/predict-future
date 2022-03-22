@@ -15,7 +15,10 @@ const resolvers = {
     },
     predictions: async (parent, { username }) => {
       const params = username ? { username } : {};
-      return Prediction.find().sort({ createdAt: -1 });
+      // return Prediction.find().sort({ createdAt: -1 });
+      const result = Prediction.find().sort({ createdAt: -1 });
+      console.log(result);
+      return result;
     },
     //wordCloud: return wordCloud;
   },

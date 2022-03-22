@@ -8,6 +8,7 @@ export const QUERY_PREDICTIONS = gql`
       predictionAuthor
       createdAt
       predictionDate
+      url
     }
   }
 `;
