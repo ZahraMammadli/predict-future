@@ -37,14 +37,14 @@ export default function Predictions({ predictions, title }) {
                 alt={prediction.title}
               /> */}
 
-              <iframe
+              <img
                 src={prediction.url}
                 width="480"
                 height="240"
                 frameBorder="0"
                 class="giphy-embed"
                 allowFullScreen
-              ></iframe>
+              ></img>
 
               <CardActions>
                 <div className="pf-footer">

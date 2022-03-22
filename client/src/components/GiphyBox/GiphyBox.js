@@ -13,7 +13,7 @@ const GiphyBox = ({ setGiphyUrl }) => {
         <ReactGiphySearchbox
           apiKey="7GziugKxtDS1CNfmNR3SLe4bjbPjxUfp"
           onSelect={(item) => {
-            setGiphyUrl(item.embed_url);
+            setGiphyUrl("https://i.giphy.com/media/" + item.id + "/giphy.webp");
             console.log(item);
           }}
           masonryConfig={[
