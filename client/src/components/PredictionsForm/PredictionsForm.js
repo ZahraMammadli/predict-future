@@ -11,7 +11,7 @@ import Stack from "@mui/material/Stack";
 import Box from "@mui/material/Box";
 import AdapterDateFns from "@mui/lab/AdapterDateFns";
 import LocalizationProvider from "@mui/lab/LocalizationProvider";
-import DateTimePicker from "@mui/lab/DateTimePicker";
+import MobileDatePicker from "@mui/lab/MobileDatePicker";
 
 const TEXT_SIZE = 250;
 
@@ -81,8 +81,9 @@ export default function PredictionsForm() {
 
         <LocalizationProvider dateAdapter={AdapterDateFns}>
           <Stack spacing={3}>
-            <DateTimePicker
-              label="Date&Time picker"
+            <MobileDatePicker
+              label="Date"
+              inputFormat="MM/dd/yyyy"
               value={predictionDate}
               onChange={handleChange}
               renderInput={({ inputRef, inputProps, InputProps }) => (

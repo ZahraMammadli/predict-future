@@ -72,6 +72,7 @@ const resolvers = {
       return prediction;
     },
     addComment: async (parent, { predictionId, commentText }, context) => {
+      console.log("THIS IS MY USERR", context.user);
       if (context.user) {
         return Prediction.findOneAndUpdate(
           { _id: predictionId },

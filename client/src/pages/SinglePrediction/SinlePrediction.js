@@ -23,7 +23,7 @@ const SinglePrediction = () => {
     return <div>Loading...</div>;
   }
   return (
-    <div className="feature">
+    <div className="sp-feature">
       <video
         autoPlay
         loop
@@ -42,13 +42,13 @@ const SinglePrediction = () => {
       >
         <source src={Nebula} type="video/mp4" />
       </video>
-      <div className="my-3">
-        <h3 className="card-header bg-dark text-light p-2 m-0">
+      <div className="sp-my-3">
+        <h3 className="sp-card-header sp-bg-dark sp-text-light sp-p-2 sp-m-0">
           {prediction.predictionAuthor} <br />
         </h3>
-        <div className="bg-light py-4">
+        <div className="sp-bg-light sp-py-4">
           <blockquote
-            className="p-4"
+            className="sp-p-4"
             style={{
               fontSize: "1.5rem",
               fontStyle: "italic",
@@ -60,10 +60,10 @@ const SinglePrediction = () => {
           </blockquote>
         </div>
 
-        <div className="my-5">
+        <div className="sp-my-5">
           <CommentList comments={prediction.comments} />
         </div>
-        <div className="m-3 p-4" style={{ border: "1px dotted #1a1a1a" }}>
+        <div className="sp-m-3 sp-p-4" style={{ border: "1px dotted #1a1a1a" }}>
           <CommentForm predictionId={prediction._id} />
         </div>
       </div>

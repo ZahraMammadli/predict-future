@@ -46,30 +46,33 @@ const CommentForm = ({ predictionId }) => {
       {Auth.loggedIn() ? (
         <>
           <p
-            className={`m-0 ${
+            className={`sp-m-0 ${
               characterCount === 280 || error ? "text-danger" : ""
             }`}
           >
             Character Count: {characterCount}/280
-            {error && <span className="ml-2">{error.message}</span>}
+            {error && <span className="sp-ml-2">{error.message}</span>}
           </p>
           <form
-            className="flex-row justify-center justify-space-between-md align-center"
+            className="sp-flex-row sp-justify-center sp-justify-space-between-md sp-align-center"
             onSubmit={handleFormSubmit}
           >
-            <div className="col-12 col-lg-9">
+            <div className="sp-col-12 sp-col-lg-9">
               <textarea
                 name="commentText"
                 placeholder="Add your comment..."
                 value={commentText}
-                className="form-input w-100"
+                className="sp-form-input sp-w-100"
                 style={{ lineHeight: "1.5", resize: "vertical" }}
                 onChange={handleChange}
               ></textarea>
             </div>
 
-            <div className="col-12 col-lg-3">
-              <button className="btn btn-primary btn-block py-3" type="submit">
+            <div className="sp-col-12 sp-col-lg-3">
+              <button
+                className="sp-btn sp-btn-primary sp-btn-block sp-py-3"
+                type="submit"
+              >
                 Add Comment
               </button>
             </div>
