@@ -20,6 +20,14 @@ const resolvers = {
       console.log(result);
       return result;
     },
+    //search feature
+    searchingPredictions: async (parent, { searchString }) => {
+      const result = await Prediction.find({
+        $text: { $search: searchString },
+      });
+      return result;
+    },
+
     //wordCloud: return wordCloud;
   },
   Mutation: {

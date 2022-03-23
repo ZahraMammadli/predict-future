@@ -5,8 +5,6 @@ import "./GiphyBox.css";
 import ReactGiphySearchbox from "react-giphy-searchbox";
 
 const GiphyBox = ({ setGiphyUrl }) => {
-  // TODO: exectue mutation with required data and store it in the database
-
   return (
     <>
       <div className="searchboxWrapper">

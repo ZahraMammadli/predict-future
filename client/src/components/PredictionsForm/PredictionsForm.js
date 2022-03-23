@@ -14,6 +14,9 @@ import Box from "@mui/material/Box";
 import AdapterDateFns from "@mui/lab/AdapterDateFns";
 import LocalizationProvider from "@mui/lab/LocalizationProvider";
 import DateTimePicker from "@mui/lab/DateTimePicker";
+import FormGroup from "@mui/material/FormGroup";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import Switch from "@mui/material/Switch";
 
 const TEXT_SIZE = 250;
 
@@ -23,6 +26,7 @@ export default function PredictionsForm() {
   );
 
   const [giphyUrl, setGiphyUrl] = useState();
+  const [showGiphyBox, setShowGiphyBox] = useState(false);
 
   const handleChange = (newValue) => {
     setValue(newValue);
@@ -70,6 +74,13 @@ export default function PredictionsForm() {
       console.error(err);
     }
   };
+  const handleShowGiphyBox = () => {
+    if (showGiphyBox) {
+      setShowGiphyBox(false);
+    } else {
+      setShowGiphyBox(true);
+    }
+  };
 
   return (
     <div className="pf-body">
@@ -109,7 +120,15 @@ export default function PredictionsForm() {
 
         <h4>Remaining chars: {TEXT_SIZE - inputText.length}</h4>
 
-        <GiphyBox setGiphyUrl={setGiphyUrl} />
+        <FormGroup>
+          <FormControlLabel
+            control={
+              <Switch checked={showGiphyBox} onChange={handleShowGiphyBox} />
+            }
+            label="Add a giphy"
+          />
+        </FormGroup>
+        {showGiphyBox && <GiphyBox setGiphyUrl={setGiphyUrl} />}
 
         <div className="pf-footer">
           <div className="pf-predict-btn">
@@ -117,7 +136,7 @@ export default function PredictionsForm() {
               variant="contained"
               onClick={handlePredict}
               style={{
-                backgroundColor: "grey",
+                backgroundColor: "blue",
               }}
             >
               Predict

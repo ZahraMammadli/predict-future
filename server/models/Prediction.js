@@ -8,6 +8,7 @@ const PredictionSchema = new Schema({
     minlength: 1,
     maxlength: 280,
     trim: true,
+    index: true,
   },
   predictionAuthor: {
     type: String,

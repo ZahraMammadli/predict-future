@@ -7,6 +7,7 @@ const typeDefs = gql`
     users: [User]
     user(username: String!): User
     predictions: [Prediction]
+    searchingPredictions(searchString: String!): [Prediction]
   }
 
   type User {

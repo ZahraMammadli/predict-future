@@ -5,6 +5,7 @@ import HomePage from "./pages/HomePage/HomePage";
 import LandingPage from "./pages/LandingPage";
 import LoginPage from "./pages/LoginPage";
 import Signup from "./pages/SignUp";
+import SearchPage from "./pages/SearchPage";
 
 import {
   ApolloClient,
@@ -49,6 +50,7 @@ function App() {
             <Route path="/post/1" element={<LandingPage />} />
             <Route path="/post/4" element={<LoginPage />} />
             <Route path="/signup" element={<Signup />} />
+            <Route path="/post/5" element={<SearchPage />} />
             <Route path="*" element={<HomePage />} />
           </Routes>
         </BrowserRouter>

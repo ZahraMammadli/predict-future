@@ -27,3 +27,17 @@ export const QUERY_USER = gql`
     }
   }
 `;
+//search feature
+
+export const QUERY_SEARCH_PREDICTIONS = gql`
+  query searchPredictions($searchString: String!) {
+    predictions(searchString: $searchString) {
+      _id
+      predictionText
+      predictionAuthor
+      createdAt
+      predictionDate
+      url
+    }
+  }
+`;
