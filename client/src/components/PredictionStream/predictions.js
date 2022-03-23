@@ -27,6 +27,10 @@ export default function Predictions({ predictions, title }) {
                 <Typography variant="body2">
                   {prediction.predictionText}
                 </Typography>
+                <Typography variant="body2">
+                  Prediction Date:
+                  {prediction.predictionDate}
+                </Typography>
               </CardContent>
               <CardActions>
                 <div className="pf-footer">

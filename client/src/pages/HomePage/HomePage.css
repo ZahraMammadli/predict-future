@@ -19,3 +19,7 @@ body {
 .center-col {
   flex: 0.6 1;
 }
+
+.feature {
+  border-radius: 1px solid black;
+}
