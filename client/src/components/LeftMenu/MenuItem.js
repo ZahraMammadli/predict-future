@@ -1,9 +1,12 @@
 import { Link } from "react-router-dom";
 
-export default function MenuItem({ name, Icon }) {
+export default function MenuItem({ id, name, Icon }) {
   return (
     <div>
-      <Link to="/landing">
+      <Link
+        style={{ textDecoration: "none", color: "aliceblue" }}
+        to={"/post/" + id}
+      >
         <h3>
           <span className="mi-icon">{Icon ? <Icon /> : ""}</span>{" "}
           <span className="mi-name"> {name}</span>

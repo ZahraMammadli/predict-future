@@ -13,8 +13,18 @@ const resolvers = {
     user: async (parent, args) => {
       return User.find(args.username);
     },
-    predictions: async () => {
+    predictions: async (parent, { username }) => {
+      const params = username ? { username } : {};
       return Prediction.find().sort({ createdAt: -1 });
+    },
+    prediction: async (parent, { predictionId }) => {
+      return Prediction.findOne({ _id: predictionId });
+    },
+    me: async (parent, args, context) => {
+      if (context.user) {
+        return User.findOne({ _id: context.user._id }).populate("predictions");
+      }
+      throw new AuthenticationError("You need to be logged in!");
     },
   },
   Mutation: {
@@ -44,24 +54,61 @@ const resolvers = {
     //  Todo: replace prediction Author by user. Update both prediction and User
     addPrediction: async (
       parent,
-      { predictionText, predictionAuthor, tags }
+      { predictionText, predictionAuthor, tags, predictionDate, url }
     ) => {
       const prediction = Prediction.create({
         predictionText,
         predictionAuthor,
         tags,
+        predictionDate,
+        url,
       });
 
       await User.findOneAndUpdate(
         { username: predictionAuthor },
-        { $addToSet: { prediction: prediction._id } }
+        { $addToSet: { predictions: prediction._id } }
       );
 
       return prediction;
     },
+    addComment: async (parent, { predictionId, commentText }, context) => {
+      console.log("THIS IS MY USERR", context.user);
+      if (context.user) {
+        return Prediction.findOneAndUpdate(
+          { _id: predictionId },
+          {
+            $addToSet: {
+              comments: { commentText, commentAuthor: context.user.username },
+            },
+          },
+          {
+            new: true,
+            runValidators: true,
+          }
+        );
+      }
+      throw new AuthenticationError("You need to be logged in!");
+    },
+    removeComment: async (parent, { predictionId, commentId }, context) => {
+      if (context.user) {
+        return Prediction.findOneAndUpdate(
+          { _id: predictionId },
+          {
+            $pull: {
+              comments: {
+                _id: commentId,
+                commentAuthor: context.user.username,
+              },
+            },
+          },
+          { new: true }
+        );
+      }
+      throw new AuthenticationError("You need to be logged in!");
+    },
   },
-
-  //  Todo: implement remove prediction functionality
 };
+
+//  Todo: implement remove prediction functionality
 
 module.exports = resolvers;

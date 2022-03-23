@@ -7,6 +7,8 @@ const typeDefs = gql`
     users: [User]
     user(username: String!): User
     predictions: [Prediction]
+    me: User
+    prediction(predictionId: ID!): Prediction
   }
 
   type User {
@@ -29,9 +31,9 @@ const typeDefs = gql`
     createdAt: String
     predictionDate: String
     tags: String
+    url: String
     comments: [Comment]
   }
-
   type Comment {
     _id: ID
     commentText: String
@@ -42,12 +44,16 @@ const typeDefs = gql`
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
+    addComment(predictionId: ID!, commentText: String!): Prediction
     addPrediction(
       predictionText: String!
       predictionAuthor: String!
+      predictionDate: String
       tags: String
+      url: String
     ): Prediction
     removePrediction(predictionId: String!): Prediction
+    removeComment(predictionId: ID!, commentId: ID!): Prediction
   }
 `;
 

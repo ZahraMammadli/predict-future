@@ -38,6 +38,7 @@ export default function LeftMenu() {
           {menuData.map((menuItem) => (
             <MenuItem
               key={menuItem.id}
+              id={menuItem.id}
               name={menuItem.name}
               Icon={menuItem.icon}
             />
