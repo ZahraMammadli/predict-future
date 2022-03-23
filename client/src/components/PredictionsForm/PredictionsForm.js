@@ -7,7 +7,6 @@ import { useMutation } from "@apollo/client";
 import { ADD_PREDICTION } from "../../utils/mutations";
 import { QUERY_PREDICTIONS } from "../../utils/queries";
 import Auth from "../../utils/auth";
-// import MaterialUIPickers from "./datePicker";
 import Stack from "@mui/material/Stack";
 import Box from "@mui/material/Box";
 import AdapterDateFns from "@mui/lab/AdapterDateFns";

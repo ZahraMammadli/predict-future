@@ -45,3 +45,19 @@ export const ADD_PREDICTION = gql`
     }
   }
 `;
+
+export const ADD_COMMENT = gql`
+  mutation addComment($predictionId: ID!, $commentText: String!) {
+    addComment(predictionId: $predictionId, commentText: $commentText) {
+      _id
+      predictionText
+      predictionAuthor
+      createdAt
+      comments {
+        _id
+        commentText
+        createdAt
+      }
+    }
+  }
+`;

@@ -18,9 +18,41 @@ export const QUERY_USER = gql`
       _id
       username
       email
-      thoughts {
+      predictions {
         _id
-        thoughtText
+        predictionText
+        createdAt
+      }
+    }
+  }
+`;
+export const QUERY_SINGLE_PREDICTION = gql`
+  query getSinglePrediction($predictionId: ID!) {
+    prediction(predictionId: $predictionId) {
+      _id
+      predictionText
+      predictionAuthor
+      createdAt
+      comments {
+        _id
+        commentText
+        commentAuthor
+        createdAt
+      }
+    }
+  }
+`;
+
+export const QUERY_ME = gql`
+  query me {
+    me {
+      _id
+      username
+      email
+      predictions {
+        _id
+        predictionText
+        predictionAuthor
         createdAt
       }
     }
