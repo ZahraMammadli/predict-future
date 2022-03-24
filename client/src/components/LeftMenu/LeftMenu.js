@@ -3,6 +3,7 @@ import HomeIcon from "@material-ui/icons/Home";
 import MailOutlineIcon from "@material-ui/icons/MailOutline";
 import SearchIcon from "@material-ui/icons/Search";
 import PermIdentityIcon from "@material-ui/icons/PermIdentity";
+import VisibilityIcon from "@material-ui/icons/Visibility";
 import "./LeftMenu.css";
 
 const menuData = [
@@ -19,12 +20,17 @@ const menuData = [
   {
     id: 3,
     name: "Explore #",
-    icon: SearchIcon,
+    icon: VisibilityIcon,
   },
   {
     id: 4,
     name: "Profile",
     icon: PermIdentityIcon,
+  },
+  {
+    id: 5,
+    name: "Search",
+    icon: SearchIcon,
   },
 ];
 console.log(window.innerWidth);

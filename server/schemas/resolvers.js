@@ -15,8 +15,43 @@ const resolvers = {
     },
     predictions: async (parent, { username }) => {
       const params = username ? { username } : {};
-      return Prediction.find().sort({ createdAt: -1 });
+      // return Prediction.find().sort({ createdAt: -1 });
+      const result = Prediction.find().sort({ createdAt: -1 });
+      console.log(result);
+      return result;
     },
+    //search feature
+    searchingPredictions: async (parent, { searchString }) => {
+      const result = await Prediction.find({
+        predictionText: { $search: searchString },
+      });
+      return result;
+      // return [
+      //   {
+      //     _id: "623a2af0b1b7b7444dd83409",
+      //     predictionText: "car",
+      //     predictionAuthor: "alex",
+      //     tags: "#tag",
+      //     comments: [],
+      //   },
+      //   {
+      //     _id: "623a2ad7b1b7b7444dd83404",
+      //     predictionText: "nex one new",
+      //     predictionAuthor: "alex",
+      //     tags: "#tag",
+      //     comments: [],
+      //   },
+      //   {
+      //     _id: "623a2a0cb1b7b7444dd833ff",
+      //     predictionText: "helloooo 6x",
+      //     predictionAuthor: "alex",
+      //     tags: "#tag",
+      //     comments: [],
+      //   },
+      // ];
+    },
+
+    //wordCloud: return wordCloud;
     prediction: async (parent, { predictionId }) => {
       return Prediction.findOne({ _id: predictionId });
     },

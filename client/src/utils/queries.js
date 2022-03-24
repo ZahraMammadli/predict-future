@@ -8,6 +8,7 @@ export const QUERY_PREDICTIONS = gql`
       predictionAuthor
       createdAt
       predictionDate
+      url
     }
   }
 `;
@@ -55,6 +56,20 @@ export const QUERY_ME = gql`
         predictionAuthor
         createdAt
       }
+    }
+  }
+`;
+//search feature
+
+export const QUERY_SEARCH_PREDICTIONS = gql`
+  query searchPredictions($searchString: String!) {
+    searchingPredictions(searchString: $searchString) {
+      _id
+      predictionText
+      predictionAuthor
+      createdAt
+      predictionDate
+      url
     }
   }
 `;

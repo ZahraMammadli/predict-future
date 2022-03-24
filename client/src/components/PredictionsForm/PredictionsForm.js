@@ -13,6 +13,10 @@ import Stack from "@mui/material/Stack";
 import Box from "@mui/material/Box";
 import AdapterDateFns from "@mui/lab/AdapterDateFns";
 import LocalizationProvider from "@mui/lab/LocalizationProvider";
+import DateTimePicker from "@mui/lab/DateTimePicker";
+import FormGroup from "@mui/material/FormGroup";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import Switch from "@mui/material/Switch";
 import MobileDatePicker from "@mui/lab/MobileDatePicker";
 
 const TEXT_SIZE = 250;
@@ -21,6 +25,9 @@ export default function PredictionsForm() {
   const [predictionDate, setValue] = React.useState(
     new Date("2022-03-20T00:00:00.000Z")
   );
+
+  const [giphyUrl, setGiphyUrl] = useState();
+  const [showGiphyBox, setShowGiphyBox] = useState(false);
 
   const handleChange = (newValue) => {
     setValue(newValue);
@@ -50,6 +57,7 @@ export default function PredictionsForm() {
 
   const handlePredict = async (event) => {
     event.preventDefault();
+    console.log(giphyUrl);
 
     try {
       const { data } = await addPrediction({
@@ -58,12 +66,20 @@ export default function PredictionsForm() {
           predictionAuthor: Auth.getProfile().data.username,
           tags: "#tag",
           predictionDate: predictionDate,
+          url: giphyUrl,
         },
       });
 
       setInputText("");
     } catch (err) {
       console.error(err);
+    }
+  };
+  const handleShowGiphyBox = () => {
+    if (showGiphyBox) {
+      setShowGiphyBox(false);
+    } else {
+      setShowGiphyBox(true);
     }
   };
 
@@ -79,19 +95,6 @@ export default function PredictionsForm() {
           value={inputText}
           variant="outlined"
         />
-        <h4>Remaining chars: {TEXT_SIZE - inputText.length}</h4>
-
-        <TextField
-          id="outlined-basic"
-          label="Enter #tags here"
-          className="pf-input"
-          placeholder="Enter the text here"
-          onChange={handleInput}
-          value={inputText}
-          variant="outlined"
-        />
-
-        <GiphyBox predictionsString={inputText} />
 
         <LocalizationProvider dateAdapter={AdapterDateFns}>
           <Stack spacing={3}>
@@ -116,13 +119,26 @@ export default function PredictionsForm() {
             />
           </Stack>
         </LocalizationProvider>
+
+        <h4>Remaining chars: {TEXT_SIZE - inputText.length}</h4>
+
+        <FormGroup>
+          <FormControlLabel
+            control={
+              <Switch checked={showGiphyBox} onChange={handleShowGiphyBox} />
+            }
+            label="Add a giphy"
+          />
+        </FormGroup>
+        {showGiphyBox && <GiphyBox setGiphyUrl={setGiphyUrl} />}
+
         <div className="pf-footer">
           <div className="pf-predict-btn">
             <Button
               variant="contained"
               onClick={handlePredict}
               style={{
-                backgroundColor: "grey",
+                backgroundColor: "blue",
               }}
             >
               Predict

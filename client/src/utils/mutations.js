@@ -29,12 +29,14 @@ export const ADD_PREDICTION = gql`
     $predictionAuthor: String!
     $tags: String
     $predictionDate: String
+    $url: String
   ) {
     addPrediction(
       predictionText: $predictionText
       predictionAuthor: $predictionAuthor
       tags: $tags
       predictionDate: $predictionDate
+      url: $url
     ) {
       _id
       predictionText
