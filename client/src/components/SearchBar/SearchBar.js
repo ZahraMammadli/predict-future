@@ -5,20 +5,25 @@ import { useQuery } from "@apollo/client";
 import { QUERY_SEARCH_PREDICTIONS } from "../../utils/queries";
 
 export default function SearchBar() {
-  const { data, loading, error } = useQuery(QUERY_SEARCH_PREDICTIONS, {});
+  const { data, loading, error } = useQuery(QUERY_SEARCH_PREDICTIONS, {
+    variables: {
+      searchString: "car",
+    },
+  });
   const { register, handleSubmit, control } = useForm();
 
   const onSubmit = async (payload) => {
     console.log(payload);
   };
 
-  // if (loading) {
-  //   return <div>loading</div>;
-  // }
+  if (loading) {
+    return <div>loading</div>;
+  }
 
-  // if (error) {
-  //   return <div>rror</div>;
-  // }
+  if (error) {
+    console.log(error);
+    return <div>rror</div>;
+  }
 
   return (
     <form className="search-bar" onSubmit={handleSubmit(onSubmit)}>

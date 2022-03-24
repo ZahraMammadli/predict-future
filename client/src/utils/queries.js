@@ -31,7 +31,7 @@ export const QUERY_USER = gql`
 
 export const QUERY_SEARCH_PREDICTIONS = gql`
   query searchPredictions($searchString: String!) {
-    predictions(searchString: $searchString) {
+    searchingPredictions(searchString: $searchString) {
       _id
       predictionText
       predictionAuthor
