@@ -52,6 +52,15 @@ const resolvers = {
     },
 
     //wordCloud: return wordCloud;
+    prediction: async (parent, { predictionId }) => {
+      return Prediction.findOne({ _id: predictionId });
+    },
+    me: async (parent, args, context) => {
+      if (context.user) {
+        return User.findOne({ _id: context.user._id }).populate("predictions");
+      }
+      throw new AuthenticationError("You need to be logged in!");
+    },
   },
   Mutation: {
     addUser: async (parent, { username, email, password }) => {
@@ -97,9 +106,44 @@ const resolvers = {
 
       return prediction;
     },
+    addComment: async (parent, { predictionId, commentText }, context) => {
+      console.log("THIS IS MY USERR", context.user);
+      if (context.user) {
+        return Prediction.findOneAndUpdate(
+          { _id: predictionId },
+          {
+            $addToSet: {
+              comments: { commentText, commentAuthor: context.user.username },
+            },
+          },
+          {
+            new: true,
+            runValidators: true,
+          }
+        );
+      }
+      throw new AuthenticationError("You need to be logged in!");
+    },
+    removeComment: async (parent, { predictionId, commentId }, context) => {
+      if (context.user) {
+        return Prediction.findOneAndUpdate(
+          { _id: predictionId },
+          {
+            $pull: {
+              comments: {
+                _id: commentId,
+                commentAuthor: context.user.username,
+              },
+            },
+          },
+          { new: true }
+        );
+      }
+      throw new AuthenticationError("You need to be logged in!");
+    },
   },
-
-  //  Todo: implement remove prediction functionality
 };
+
+//  Todo: implement remove prediction functionality
 
 module.exports = resolvers;

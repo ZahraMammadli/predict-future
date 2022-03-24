@@ -1,45 +1,56 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import WordCloud from "react-d3-cloud";
 import "./wordcloud.css";
-import { QUERY_PREDICTIONS } from "../../utils/queries";
-import { useQuery } from "@apollo/client";
 import { getWordCloudData } from "../../utils/Api";
-// import data from "./data.json"; TODO get the words from the graphql
-
-// get words data from server
-const test = async () => {
-  try {
-    const response = await getWordCloudData();
-    console.log(response);
-    if (!response.ok) {
-      throw new Error("something went wrong!");
-    }
-
-    const items = await response.json();
-    return items;
-  } catch (err) {
-    console.error(err);
-  }
-};
-
-const wordsList = [
-  { text: "Hey", value: 1000 },
-  { text: "lol", value: 200 },
-  { text: "first impression", value: 800 },
-  { text: "very cool", value: 1000000 },
-  { text: "duck", value: 10 },
-];
-
-const fontSize = (word) => word.value / 20;
-const rotate = (word) => (word.value % 90) - 45;
 
 export default function Words() {
+  // get words data from server
+
+  const [wordsList, setWordList] = useState([
+    { text: "Hey", value: 1000 },
+    { text: "lol", value: 200 },
+    { text: "first impression", value: 800 },
+    { text: "very cool", value: 1000000 },
+    { text: "duck", value: 10 },
+  ]);
+
+  useEffect(() => {
+    const getWordSample = async () => {
+      let wordsSample = [];
+      try {
+        const response = await getWordCloudData();
+
+        if (!response.ok) {
+          throw new Error("something went wrong!");
+        }
+
+        const items = await response.json();
+
+        items.map((item) =>
+          wordsSample.push({
+            text: item.parsed_value,
+            value: item.count,
+          })
+        );
+        setWordList(wordsSample);
+      } catch (err) {
+        console.error(err);
+      }
+    };
+
+    getWordSample();
+  }, []);
+  const fontSize = (word) => word.value / 20;
+  const rotate = (word) => (word.value % 90) - 45;
   //   this is the renedering part
 
   const newData = wordsList.map((item) => ({
     text: item.text,
     value: Math.random() * 1000,
   }));
+
+  console.log(newData);
+
   return (
     <WordCloud
       width={1000}

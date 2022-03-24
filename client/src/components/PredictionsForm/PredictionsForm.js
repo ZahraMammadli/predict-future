@@ -17,6 +17,7 @@ import DateTimePicker from "@mui/lab/DateTimePicker";
 import FormGroup from "@mui/material/FormGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Switch from "@mui/material/Switch";
+import MobileDatePicker from "@mui/lab/MobileDatePicker";
 
 const TEXT_SIZE = 250;
 
@@ -97,8 +98,9 @@ export default function PredictionsForm() {
 
         <LocalizationProvider dateAdapter={AdapterDateFns}>
           <Stack spacing={3}>
-            <DateTimePicker
-              label="Date&Time picker"
+            <MobileDatePicker
+              label="Date"
+              inputFormat="MM/dd/yyyy"
               value={predictionDate}
               onChange={handleChange}
               renderInput={({ inputRef, inputProps, InputProps }) => (

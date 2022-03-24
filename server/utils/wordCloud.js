@@ -11,34 +11,29 @@ async function generateWordCloud() {
   // Create new array with text to pass to ML model
   let data = [];
   data.push(words);
-  //   console.log(wordCloud);
 
   // ML model to extract keywords
   let model_id = "ex_YCya9nrn";
 
   //   let wordCloudData;
   const ml = new MonkeyLearn("b7fffd90a7904d8663f01c263ad332062e85c8db");
-  const extractor = ml.extractors
-    .extract(model_id, data)
-    .then((response) => {
-      // handle response
-      //   console.log(response);
-      return response.body[0].extractions;
-      //   console.log(response.body[0].extractions);
-    })
-    .catch((error) => {
-      // handle error
-      console.log(error);
-      // if an error is thrown during the request
-      // it will also contain the (failure) response
-      console.log(error.response);
-    });
 
-  const wordCloud = await extractor;
-  //   console.log(wordCloud);
-  //   wordCloud = [{ text: "dooms day", value: 10 }];
+  try {
+    const extractor = await ml.extractors.extract(model_id, data);
+
+    wordCloud = extractor.body[0].extractions;
+    console.log(wordCloud);
+  } catch (error) {
+    // handle error
+    console.log(error);
+    console.log(error.response);
+  }
 }
 
-module.exports = { generateWordCloud, wordCloud };
+const getWordCloud = () => {
+  return wordCloud;
+};
+
+module.exports = { generateWordCloud, getWordCloud };
 
 // Use the API key from your account

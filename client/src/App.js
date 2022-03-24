@@ -1,11 +1,14 @@
 import "./App.css";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
-import { render } from "react-dom";
+
 import HomePage from "./pages/HomePage/HomePage";
 import LandingPage from "./pages/LandingPage";
 import LoginPage from "./pages/LoginPage";
 import Signup from "./pages/SignUp";
 import SearchPage from "./pages/SearchPage";
+import Explore from "./pages/Explore";
+
+import SinglePrediction from "./pages/SinglePrediction/SinlePrediction";
 
 import {
   ApolloClient,
@@ -14,8 +17,6 @@ import {
   createHttpLink,
 } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
-
-import Feed from "./components/PredictionStream/feed";
 
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
@@ -51,6 +52,12 @@ function App() {
             <Route path="/post/4" element={<LoginPage />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/post/5" element={<SearchPage />} />
+            <Route path="/post/3" element={<Explore />} />
+            <Route
+              path="/singlePrediction/:predictionId"
+              element={<SinglePrediction />}
+            />
+
             <Route path="*" element={<HomePage />} />
           </Routes>
         </BrowserRouter>

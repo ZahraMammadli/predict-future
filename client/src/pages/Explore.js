@@ -1,10 +1,8 @@
-import LeftMenu from "../../components/LeftMenu/LeftMenu";
-import PredictionsForm from "../../components/PredictionsForm/PredictionsForm";
-import Feed from "../../components/PredictionStream/feed";
-import "./HomePage.css";
-import Nebula from "../../assets/videos/Nebula.mp4";
+import LeftMenu from "../components/LeftMenu/LeftMenu";
+import WordCloud from "../components/WordCloud/WordCloud";
+import Nebula from "../assets/videos/Nebula.mp4";
 
-export default function () {
+const Explore = () => {
   return (
     <div className="feature">
       <video
@@ -31,12 +29,11 @@ export default function () {
             <LeftMenu />
           </div>
           <div className="center-col">
-            {/* <WordCloud /> */}
-            <PredictionsForm />
-            <Feed />
+            <WordCloud />
           </div>
         </div>
       </div>
     </div>
   );
-}
+};
+export default Explore;
