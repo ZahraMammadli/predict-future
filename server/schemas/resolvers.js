@@ -20,13 +20,6 @@ const resolvers = {
       console.log(result);
       return result;
     },
-    //search feature
-    searchingPredictions: async (parent, { searchString }) => {
-      const result = await Prediction.find({
-        predictionText: { $regex: searchString, $options: "i" },
-      });
-      return result;
-    },
 
     //wordCloud: return wordCloud;
     prediction: async (parent, { predictionId }) => {
@@ -117,6 +110,13 @@ const resolvers = {
         );
       }
       throw new AuthenticationError("You need to be logged in!");
+    },
+    //search feature
+    searchingPredictions: async (parent, { searchString }) => {
+      const result = await Prediction.find({
+        predictionText: { $regex: searchString, $options: "i" },
+      });
+      return result;
     },
   },
 };

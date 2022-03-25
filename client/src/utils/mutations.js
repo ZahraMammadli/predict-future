@@ -63,3 +63,18 @@ export const ADD_COMMENT = gql`
     }
   }
 `;
+
+//search feature
+
+export const SEARCH_PREDICTIONS = gql`
+  mutation searchPredictions($searchString: String!) {
+    searchingPredictions(searchString: $searchString) {
+      _id
+      predictionText
+      predictionAuthor
+      createdAt
+      predictionDate
+      url
+    }
+  }
+`;

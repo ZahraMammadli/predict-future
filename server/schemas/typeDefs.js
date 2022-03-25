@@ -7,7 +7,6 @@ const typeDefs = gql`
     users: [User]
     user(username: String!): User
     predictions: [Prediction]
-    searchingPredictions(searchString: String!): [Prediction]
     me: User
     prediction(predictionId: ID!): Prediction
   }
@@ -55,6 +54,7 @@ const typeDefs = gql`
     ): Prediction
     removePrediction(predictionId: String!): Prediction
     removeComment(predictionId: ID!, commentId: ID!): Prediction
+    searchingPredictions(searchString: String!): [Prediction]
   }
 `;
 
