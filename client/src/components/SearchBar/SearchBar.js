@@ -55,7 +55,7 @@ export default function SearchBar() {
             onChange={handleSearchTextChange}
           />
         </div>
-        <button>Search</button>
+        <button className="button-style">Search</button>
       </form>
       <Feed predictions={predictions} loading={loading} />
     </>

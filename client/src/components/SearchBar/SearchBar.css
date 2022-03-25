@@ -4,6 +4,8 @@
 
 .search-bar {
   flex: 0.3;
+  width: 80%;
+  margin: auto;
 }
 .widgets::-webkit-scrollbar {
   display: none;
@@ -11,12 +13,11 @@
 .search-bar__input {
   display: flex;
   align-items: center;
-  background-color: var(--twitter-background);
+  background-color: white;
   padding: 10px;
   border: 1px solid gray;
   border-radius: 20px;
   margin-top: 10px;
-  margin-left: 20px;
 }
 .search-bar__input > input {
   border: none;
@@ -27,4 +28,14 @@
 }
 .search-bar__searchIcon {
   color: gray;
+}
+
+.button-style {
+  background-color: blue;
+  border-color: blue;
+  border-radius: 10%;
+  padding: 5px 25px;
+  color: white;
+  margin-top: 0.5%;
+  margin-bottom: 1%;
 }

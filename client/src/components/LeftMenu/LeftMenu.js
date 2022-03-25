@@ -18,11 +18,6 @@ const menuData = [
     icon: MailOutlineIcon,
   },
   {
-    id: 3,
-    name: "Explore #",
-    icon: VisibilityIcon,
-  },
-  {
     id: 4,
     name: "Login",
     icon: PermIdentityIcon,

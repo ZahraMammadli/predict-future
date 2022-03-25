@@ -1,10 +1,7 @@
 import LeftMenu from "../components/LeftMenu/LeftMenu";
-import PredictionsForm from "../components/PredictionsForm/PredictionsForm";
-import Feed from "../components/PredictionStream/feed";
-// import "./HomePage.css";
-import WordCloud from "../components/WordCloud/WordCloud";
 import Nebula from "../assets/videos/Nebula.mp4";
 import SearchBar from "../components/SearchBar/SearchBar";
+import WordCloud from "../components/WordCloud/WordCloud";
 
 export default function () {
   return (
@@ -33,7 +30,7 @@ export default function () {
             <LeftMenu />
           </div>
           <div className="center-col">
-            {/* <WordCloud /> */}
+            <WordCloud />
             <SearchBar />
           </div>
         </div>
