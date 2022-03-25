@@ -52,13 +52,19 @@ export default function Words() {
   console.log(newData);
 
   return (
-    <WordCloud
-      width={1000}
-      height={750}
-      data={newData}
-      fontSize={fontSize}
-      rotate={rotate}
-      padding={2}
-    />
+    <div>
+      <h1>This is Word Cloud</h1>
+      <h2>It indicates the most used keywrods in predictions</h2>
+      <div className="wordcloud">
+        <WordCloud
+          width={1000}
+          height={750}
+          data={newData}
+          fontSize={fontSize}
+          rotate={rotate}
+          padding={2}
+        />
+      </div>
+    </div>
   );
 }
