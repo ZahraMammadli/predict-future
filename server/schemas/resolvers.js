@@ -20,36 +20,6 @@ const resolvers = {
       console.log(result);
       return result;
     },
-    //search feature
-    searchingPredictions: async (parent, { searchString }) => {
-      const result = await Prediction.find({
-        predictionText: { $search: searchString },
-      });
-      return result;
-      // return [
-      //   {
-      //     _id: "623a2af0b1b7b7444dd83409",
-      //     predictionText: "car",
-      //     predictionAuthor: "alex",
-      //     tags: "#tag",
-      //     comments: [],
-      //   },
-      //   {
-      //     _id: "623a2ad7b1b7b7444dd83404",
-      //     predictionText: "nex one new",
-      //     predictionAuthor: "alex",
-      //     tags: "#tag",
-      //     comments: [],
-      //   },
-      //   {
-      //     _id: "623a2a0cb1b7b7444dd833ff",
-      //     predictionText: "helloooo 6x",
-      //     predictionAuthor: "alex",
-      //     tags: "#tag",
-      //     comments: [],
-      //   },
-      // ];
-    },
 
     //wordCloud: return wordCloud;
     prediction: async (parent, { predictionId }) => {
@@ -140,6 +110,13 @@ const resolvers = {
         );
       }
       throw new AuthenticationError("You need to be logged in!");
+    },
+    //search feature
+    searchingPredictions: async (parent, { searchString }) => {
+      const result = await Prediction.find({
+        predictionText: { $regex: searchString, $options: "i" },
+      });
+      return result;
     },
   },
 };

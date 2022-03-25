@@ -3,8 +3,13 @@ import PredictionsForm from "../../components/PredictionsForm/PredictionsForm";
 import Feed from "../../components/PredictionStream/feed";
 import "./HomePage.css";
 import Nebula from "../../assets/videos/Nebula.mp4";
+import { QUERY_PREDICTIONS } from "../../utils/queries";
+import { useQuery } from "@apollo/client";
 
 export default function () {
+  const { loading, data } = useQuery(QUERY_PREDICTIONS);
+  const predictions = data?.predictions || [];
+
   return (
     <div className="feature">
       <video
@@ -33,7 +38,7 @@ export default function () {
           <div className="center-col">
             {/* <WordCloud /> */}
             <PredictionsForm />
-            <Feed />
+            <Feed predictions={predictions} loading={loading} />
           </div>
         </div>
       </div>
