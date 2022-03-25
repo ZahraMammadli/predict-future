@@ -4,11 +4,13 @@ import { Controller, useForm } from "react-hook-form";
 import { useMutation } from "@apollo/client";
 import { SEARCH_PREDICTIONS } from "../../utils/mutations";
 import { useState } from "react";
+import Feed from "../../components/PredictionStream/feed";
 
 export default function SearchBar() {
   const [search, { loading, error }] = useMutation(SEARCH_PREDICTIONS);
   const { register, handleSubmit, control } = useForm();
   const [searchText, setSearchText] = useState("");
+  const [predictions, setPredictions] = useState([]);
   const onSubmit = async (payload) => {
     console.log(payload);
   };
@@ -26,13 +28,13 @@ export default function SearchBar() {
     // Get the current search text
 
     console.log("Searchhing for ", searchText);
-    const data = await search({
+    const res = await search({
       variables: {
         searchString: searchText,
       },
     });
 
-    console.log(data);
+    setPredictions(res.data.searchingPredictions);
   };
 
   const handleSearchTextChange = (e) => {
@@ -41,18 +43,21 @@ export default function SearchBar() {
   };
 
   return (
-    <form className="search-bar" onSubmit={searchPredictions}>
-      <div className="search-bar__input">
-        <Search className="search-bar__searchIcon" />
-        <input
-          placeholder="Search"
-          type="text"
-          {...register("searchTerm", { required: true })}
-          value={searchText}
-          onChange={handleSearchTextChange}
-        />
-      </div>
-      <button>Search</button>
-    </form>
+    <>
+      <form className="search-bar" onSubmit={searchPredictions}>
+        <div className="search-bar__input">
+          <Search className="search-bar__searchIcon" />
+          <input
+            placeholder="Search"
+            type="text"
+            {...register("searchTerm", { required: true })}
+            value={searchText}
+            onChange={handleSearchTextChange}
+          />
+        </div>
+        <button>Search</button>
+      </form>
+      <Feed predictions={predictions} loading={loading} />
+    </>
   );
 }

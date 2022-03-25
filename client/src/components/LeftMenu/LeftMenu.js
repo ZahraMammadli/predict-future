@@ -24,7 +24,7 @@ const menuData = [
   },
   {
     id: 4,
-    name: "Profile",
+    name: "Login",
     icon: PermIdentityIcon,
   },
   {
