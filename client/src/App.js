@@ -48,11 +48,11 @@ function App() {
       <div className="app">
         <BrowserRouter>
           <Routes>
-            <Route path="/post/1" element={<LandingPage />} />
-            <Route path="/post/4" element={<LoginPage />} />
+            <Route path="/landing" element={<LandingPage />} />
+            <Route path="/login" element={<LoginPage />} />
             <Route path="/signup" element={<Signup />} />
-            <Route path="/post/5" element={<SearchPage />} />
-            <Route path="/post/3" element={<Explore />} />
+            <Route path="/search" element={<SearchPage />} />
+            <Route path="/explore" element={<Explore />} />
             <Route
               path="/singlePrediction/:predictionId"
               element={<SinglePrediction />}

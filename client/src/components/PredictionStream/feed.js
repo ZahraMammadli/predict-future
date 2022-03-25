@@ -3,10 +3,7 @@ import { QUERY_PREDICTIONS } from "../../utils/queries";
 import Predictions from "./predictions";
 import { useQuery } from "@apollo/client";
 
-const Feed = () => {
-  const { loading, data } = useQuery(QUERY_PREDICTIONS);
-  const predictions = data?.predictions || [];
-
+const Feed = ({ predictions, loading }) => {
   return (
     <main>
       <div>

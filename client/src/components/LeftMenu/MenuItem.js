@@ -5,7 +5,7 @@ export default function MenuItem({ id, name, Icon }) {
     <div>
       <Link
         style={{ textDecoration: "none", color: "aliceblue" }}
-        to={"/post/" + id}
+        to={"/" + name.toLowerCase()}
       >
         <h3>
           <span className="mi-icon">{Icon ? <Icon /> : ""}</span>{" "}
