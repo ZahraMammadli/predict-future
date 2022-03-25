@@ -26,21 +26,14 @@ export default function Predictions({ predictions, title }) {
                 <Typography gutterBottom variant="h5" component="div">
                   {prediction.predictionAuthor}
                 </Typography>
-                <Typography variant="body2">
+                <Typography variant="h6">
                   {prediction.predictionText}
                 </Typography>
-                <Typography variant="body2">
-                  Prediction Date:
+                <Typography variant="body1">
+                  Prediction For:
                   {prediction.predictionDate}
                 </Typography>
               </CardContent>
-
-              {/* <CardMedia
-                component="img"
-                height="194"
-                image={prediction.url}
-                alt={prediction.title}
-              /> */}
 
               <img
                 src={prediction.url}

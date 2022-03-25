@@ -3,6 +3,7 @@ import PredictionsForm from "../../components/PredictionsForm/PredictionsForm";
 import Feed from "../../components/PredictionStream/feed";
 import "./HomePage.css";
 import Nebula from "../../assets/videos/Nebula.mp4";
+// import WordCloud from "../../components/WordCloud/WordCloud";
 
 export default function () {
   return (
