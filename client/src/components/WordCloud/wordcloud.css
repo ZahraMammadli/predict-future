@@ -4,9 +4,11 @@
 }
 
 .wordcloud {
-  background-color: rgba(255, 255, 255, 0.6);
-  margin-top: 5%;
+  background-color: rgba(255, 255, 255, 1);
+  margin-top: 2%;
   margin-left: 10%;
   margin-right: 10%;
-  margin-bottom: 5%;
+  margin-bottom: 2%;
+  border: 1px solid gray;
+  border-radius: 5%;
 }

@@ -34,6 +34,8 @@ export const QUERY_SINGLE_PREDICTION = gql`
       predictionText
       predictionAuthor
       createdAt
+      predictionDate
+      url
       comments {
         _id
         commentText

@@ -2,7 +2,6 @@ import * as React from "react";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
 import "./Predictions.css";
 import { Link } from "@material-ui/core";
 
@@ -22,27 +21,27 @@ export default function Predictions({ predictions, title }) {
                 color: "aliceblue",
               }}
             >
-              <CardContent>
-                <Typography gutterBottom variant="h5" component="div">
-                  {prediction.predictionAuthor}
-                </Typography>
-                <Typography variant="h6">
-                  {prediction.predictionText}
-                </Typography>
-                <Typography variant="body1">
-                  Prediction For:
-                  {prediction.predictionDate}
-                </Typography>
-              </CardContent>
-
               <img
                 src={prediction.url}
-                width="480"
-                height="240"
+                width="100%"
                 frameBorder="0"
                 class="giphy-embed"
                 allowFullScreen
+                style={{
+                  borderRadius: "25px",
+                }}
               ></img>
+              <CardContent>
+                <Typography gutterBottom variant="h4" component="div">
+                  "{prediction.predictionText}"
+                </Typography>
+                <Typography variant="body1" className="metadata">
+                  Published By: {prediction.predictionAuthor}
+                </Typography>
+                <Typography variant="body1" className="metadata">
+                  For: {prediction.predictionDate}
+                </Typography>
+              </CardContent>
 
               <CardActions>
                 <div className="pf-footer">
@@ -51,7 +50,7 @@ export default function Predictions({ predictions, title }) {
                       variant="contained"
                       size="small"
                       style={{
-                        backgroundColor: "grey",
+                        backgroundColor: "blue",
                       }}
                     >
                       <Link

@@ -1,15 +1,19 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useMutation } from "@apollo/client";
-
+import "./comments.css";
 import { ADD_COMMENT } from "../../utils/mutations";
+import Button from "@mui/material/Button";
+import TextField from "@mui/material/TextField";
 
 import Auth from "../../utils/auth";
 
+const TEXT_SIZE = 250;
 const CommentForm = ({ predictionId }) => {
   const [commentText, setCommentText] = useState("");
   const [characterCount, setCharacterCount] = useState(0);
 
+  const [inputText, setInputText] = useState("");
   const [addComment, { error }] = useMutation(ADD_COMMENT);
 
   const handleFormSubmit = async (event) => {
@@ -41,42 +45,38 @@ const CommentForm = ({ predictionId }) => {
 
   return (
     <div>
-      <h4>What are your comments on this prediction?</h4>
-
       {Auth.loggedIn() ? (
         <>
-          <p
-            className={`sp-m-0 ${
-              characterCount === 280 || error ? "text-danger" : ""
-            }`}
-          >
-            Character Count: {characterCount}/280
-            {error && <span className="sp-ml-2">{error.message}</span>}
-          </p>
-          <form
-            className="sp-flex-row sp-justify-center sp-justify-space-between-md sp-align-center"
-            onSubmit={handleFormSubmit}
-          >
-            <div className="sp-col-12 sp-col-lg-9">
-              <textarea
+          <div className="pf-body">
+            <form onSubmit={handleFormSubmit}>
+              <TextField
+                id="outlined-basic"
+                label="Enter the text here"
+                className="pf-input"
                 name="commentText"
                 placeholder="Add your comment..."
                 value={commentText}
-                className="sp-form-input sp-w-100"
-                style={{ lineHeight: "1.5", resize: "vertical" }}
+                variant="outlined"
                 onChange={handleChange}
-              ></textarea>
-            </div>
+              />
+              <h4>Remaining chars: {TEXT_SIZE - inputText.length}</h4>
 
-            <div className="sp-col-12 sp-col-lg-3">
-              <button
-                className="sp-btn sp-btn-primary sp-btn-block sp-py-3"
-                type="submit"
-              >
-                Add Comment
-              </button>
-            </div>
-          </form>
+              <div className="pf-footer">
+                <div className="pf-predict-btn">
+                  <Button
+                    type="submit"
+                    variant="contained"
+                    style={{
+                      backgroundColor: "blue",
+                    }}
+                  >
+                    Comment
+                  </Button>
+                </div>
+              </div>
+            </form>
+          </div>
+          ;
         </>
       ) : (
         <p>

@@ -8,12 +8,10 @@ import { ADD_PREDICTION } from "../../utils/mutations";
 import { QUERY_PREDICTIONS } from "../../utils/queries";
 import Auth from "../../utils/auth";
 import GiphyBox from "../GiphyBox/GiphyBox";
-// import MaterialUIPickers from "./datePicker";
 import Stack from "@mui/material/Stack";
 import Box from "@mui/material/Box";
 import AdapterDateFns from "@mui/lab/AdapterDateFns";
 import LocalizationProvider from "@mui/lab/LocalizationProvider";
-import DateTimePicker from "@mui/lab/DateTimePicker";
 import FormGroup from "@mui/material/FormGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Switch from "@mui/material/Switch";
@@ -95,6 +93,7 @@ export default function PredictionsForm() {
           value={inputText}
           variant="outlined"
         />
+        <h4>Remaining chars: {TEXT_SIZE - inputText.length}</h4>
 
         <LocalizationProvider dateAdapter={AdapterDateFns}>
           <Stack spacing={3}>
@@ -104,15 +103,13 @@ export default function PredictionsForm() {
               value={predictionDate}
               onChange={handleChange}
               renderInput={({ inputRef, inputProps, InputProps }) => (
-                <Box
-                  sx={{
-                    display: "flex",
-                    alignItems: "center",
-                    marginLeft: "15px",
-                  }}
-                >
-                  {" "}
-                  <input ref={inputRef} {...inputProps} />
+                <Box>
+                  <h4 className="box-header">Pick prediction Date</h4>{" "}
+                  <input
+                    style={{ width: "15%" }}
+                    ref={inputRef}
+                    {...inputProps}
+                  />
                   {InputProps?.endAdornment}
                 </Box>
               )}
@@ -120,9 +117,7 @@ export default function PredictionsForm() {
           </Stack>
         </LocalizationProvider>
 
-        <h4>Remaining chars: {TEXT_SIZE - inputText.length}</h4>
-
-        <FormGroup>
+        <FormGroup className="giffy">
           <FormControlLabel
             control={
               <Switch checked={showGiphyBox} onChange={handleShowGiphyBox} />

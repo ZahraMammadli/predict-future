@@ -6,7 +6,6 @@ import LandingPage from "./pages/LandingPage";
 import LoginPage from "./pages/LoginPage";
 import Signup from "./pages/SignUp";
 import SearchPage from "./pages/SearchPage";
-import Explore from "./pages/Explore";
 
 import SinglePrediction from "./pages/SinglePrediction/SinlePrediction";
 
@@ -52,7 +51,6 @@ function App() {
             <Route path="/login" element={<LoginPage />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/search" element={<SearchPage />} />
-            <Route path="/explore" element={<Explore />} />
             <Route
               path="/singlePrediction/:predictionId"
               element={<SinglePrediction />}
