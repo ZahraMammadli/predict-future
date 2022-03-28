@@ -15,7 +15,6 @@ const resolvers = {
     },
     predictions: async (parent, { username }) => {
       const params = username ? { username } : {};
-      // return Prediction.find().sort({ createdAt: -1 });
       const result = Prediction.find().sort({ createdAt: -1 });
       console.log(result);
       return result;
@@ -77,7 +76,6 @@ const resolvers = {
       return prediction;
     },
     addComment: async (parent, { predictionId, commentText }, context) => {
-      console.log("THIS IS MY USERR", context.user);
       if (context.user) {
         return Prediction.findOneAndUpdate(
           { _id: predictionId },
@@ -120,7 +118,5 @@ const resolvers = {
     },
   },
 };
-
-//  Todo: implement remove prediction functionality
 
 module.exports = resolvers;

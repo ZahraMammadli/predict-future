@@ -27,7 +27,6 @@ export default function SearchBar() {
   const searchPredictions = async () => {
     // Get the current search text
 
-    console.log("Searchhing for ", searchText);
     const res = await search({
       variables: {
         searchString: searchText,
@@ -39,7 +38,6 @@ export default function SearchBar() {
 
   const handleSearchTextChange = (e) => {
     setSearchText(e.target.value);
-    console.log(e.target.value);
   };
 
   return (

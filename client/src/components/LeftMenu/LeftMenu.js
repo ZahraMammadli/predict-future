@@ -28,7 +28,6 @@ const menuData = [
     icon: SearchIcon,
   },
 ];
-console.log(window.innerWidth);
 
 // make menu responsive:
 export default function LeftMenu() {

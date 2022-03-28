@@ -12,7 +12,6 @@ const GiphyBox = ({ setGiphyUrl }) => {
           apiKey="7GziugKxtDS1CNfmNR3SLe4bjbPjxUfp"
           onSelect={(item) => {
             setGiphyUrl("https://i.giphy.com/media/" + item.id + "/giphy.webp");
-            console.log(item);
           }}
           masonryConfig={[
             { columns: 2, imageWidth: 110, gutter: 5 },
