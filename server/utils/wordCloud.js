@@ -1,5 +1,6 @@
 const MonkeyLearn = require("monkeylearn");
 const { Prediction } = require("../models");
+require("dotenv").config();
 
 let wordCloud = [];
 async function generateWordCloud() {
@@ -16,7 +17,7 @@ async function generateWordCloud() {
   let model_id = "ex_YCya9nrn";
 
   //   let wordCloudData;
-  const ml = new MonkeyLearn("b7fffd90a7904d8663f01c263ad332062e85c8db");
+  const ml = new MonkeyLearn(process.env.monkeyLearnAPIkey);
 
   try {
     const extractor = await ml.extractors.extract(model_id, data);
