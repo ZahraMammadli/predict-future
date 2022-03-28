@@ -55,7 +55,6 @@ export default function PredictionsForm() {
 
   const handlePredict = async (event) => {
     event.preventDefault();
-    console.log(giphyUrl);
 
     try {
       const { data } = await addPrediction({

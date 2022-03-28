@@ -23,7 +23,7 @@ async function generateWordCloud() {
     const extractor = await ml.extractors.extract(model_id, data);
 
     wordCloud = extractor.body[0].extractions;
-    console.log(wordCloud);
+   
   } catch (error) {
     // handle error
     console.log(error);
