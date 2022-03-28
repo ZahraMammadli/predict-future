@@ -6,7 +6,6 @@ import Typography from "@mui/material/Typography";
 const CommentList = ({ comments = [] }) => {
   return (
     <>
-      <h1>Comments</h1>
       <div>
         {comments &&
           comments.map((comment) => (
