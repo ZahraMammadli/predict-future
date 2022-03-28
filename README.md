@@ -20,7 +20,7 @@
 ### Project Link
 
 - Please click [here](https://github.com/ZahraMammadli/predict-future/tree/dev) to see the contents of our project in Github
-- [here](https://peaceful-beyond-13136.herokuapp.com/) you can see the deployed app on heroku
+- [here](https://powerful-island-52702.herokuapp.com/) you can see the deployed app on heroku
 - Please click [here](https://docs.google.com/presentation/d/1IUPHNgaCSpt3bIx9TFbYajYXuEmHKIXHKrTpAICOU-I/edit#slide=id.p) to see the presentation of the project
 
 ### Getting Started
